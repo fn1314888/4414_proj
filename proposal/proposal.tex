@@ -1,0 +1,88 @@
+\documentclass[sigconf]{acmart}
+
+\settopmatter{printacmref=false} 
+\setcopyright{none}        
+
+\renewcommand\footnotetextcopyrightpermission[1]{} 
+\pagestyle{plain}                                 
+\acmDOI{}                                         
+\acmISBN{}                                        
+\acmConference[]{}{}{}                           
+
+\begin{document}
+
+\title{Boolean Networks and Directed Algebraic Topology}
+
+\author{Frank Ngo}
+\email{ngofrank@my.yorku.ca}
+
+\maketitle
+
+\subsubsection*{Note}
+
+This proposal may be brief, but it explains in a straightforward way everything that we plan to do.
+
+\section{Motivation and Problem Definition}
+
+Gene regulatory networks are complex systems that control cellular behavior. They can be effectively modeled as synchronous Boolean networks, where individual genes act as simple switches that are either on or off. 
+As time progresses, the network updates its state synchronously, moving through various configurations until it settles into stable patterns known as attractors. 
+
+To understand how a network reaches these behaviors, we study its state transition graph, which maps out every possible state and the directed transitions between them. 
+While standard graph analysis techniques can reveal basic network properties, they often struggle to capture the richer, multi-dimensional structures hidden within the state space. 
+Specifically, they miss how groups of states organize into larger geometric structures.
+
+We propose using directed flag complexes from algebraic topology to analyze state transition graphs. 
+Our main plan is to construct and study $n$-dimensional directed flag complexes from the state transition graphs of Boolean networks. 
+We hope to reveal the topology of the state space and investigate whether topological holes, voids, or connected manifolds correspond to key dynamical features, such as network attractors and the depth of their respective basins. If time allows, we will explore how these topological structures shift when examining unions or modifications of networks.
+
+Directed algebraic topology has also been used to study other things like brain dynamics and concurrent processes.
+
+\subsection{Definitions}
+
+Here we lay out some basic definitions, so the reader can get a better sense of what exactly Boolean networks are.
+
+A synchronous Boolean network is a tuple $(V, F)$, where the components are defined as follows:
+
+- $V$ is a finite ordered set of $n$ variables $V = \{v_1, v_2, \dots, v_n\}$, where each variable takes values in $\{0, 1\}$.
+At time $t \in \mathbb{N}_0$, the state vector $\mathbf{x}(t) = (x_1(t), x_2(t), \dots, x_n(t)) \in \{0, 1\}^n$ assigns a value $x_i(t) \in \{0, 1\}$ to variable $v_i$ at time $t$. 
+
+- $F: \{0, 1\}^n \rightarrow \{0, 1\}^n$ is a global state transition function defined by
+$$
+F(\mathbf{x}(t)) = (f_1(\mathbf{x}(t)), f_2(\mathbf{x}(t)), \dots, f_n(\mathbf{x}(t)))
+$$
+where each local function $f_i: \{0, 1\}^n \rightarrow \{0, 1\}$ governs the next state value $x_i(t + 1)$ of variable $v_i$.
+
+The state of the system evolves over time according to the discrete update rule:
+$$
+\mathbf{x}(t + 1) = F(\mathbf{x}(t))
+$$
+
+\section{Methodology and Evaluation}
+
+ While specific network models and datasets may change throughout the project, the main pipeline will have the following stages:
+
+\begin{enumerate}
+    \item 
+    We will use \texttt{BoolNet} to simulate synchronous Boolean networks and generate their state transition graphs and identify attractors.
+
+    \item 
+     We will use \texttt{flagser} to extract directed complexes to capture higher-order relationships within the state space.
+
+    \item 
+     We will determine whether the complexes form stitched-together surfaces, volumes, or manifolds, and if there are any we will interpret their significance. We will also investigate whether topological features like holes correspond to dynamical attractors, and evaluate the structural characteristics of the basins of attraction.
+
+    \item 
+    To interpret these complex topological structures, we will make interactive visualizations. This will allow us to present our findings in a nice way.
+\end{enumerate}
+
+\subsubsection*{Note}
+
+The following references are not specifically mentioned in the text, but are a list of papers that we will refer to and tools that we will use.
+
+\nocite{*}
+
+\bibliographystyle{ACM-Reference-Format}
+
+\bibliography{references}
+
+\end{document}
