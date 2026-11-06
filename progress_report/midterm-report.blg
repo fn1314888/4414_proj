@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: midterm-report.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: references.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty address in Akutsu2018
+Warning--empty address in Cheng2010
+You've used 5 entries,
+            6273 wiz_defined-function locations,
+            1559 strings with 19250 characters,
+and the built_in function-call counts, 5419 in all, are:
+= -- 777
+> -- 143
+< -- 0
++ -- 44
+- -- 47
+* -- 377
+:= -- 512
+add.period$ -- 27
+call.type$ -- 5
+change.case$ -- 33
+chr.to.int$ -- 5
+cite$ -- 7
+duplicate$ -- 458
+empty$ -- 322
+format.name$ -- 59
+if$ -- 1340
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 16
+newline$ -- 85
+num.names$ -- 35
+pop$ -- 152
+preamble$ -- 1
+purify$ -- 73
+quote$ -- 0
+skip$ -- 161
+stack$ -- 0
+substring$ -- 436
+swap$ -- 50
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 78
+warning$ -- 2
+while$ -- 32
+width$ -- 0
+write$ -- 139
+(There were 2 warnings)
