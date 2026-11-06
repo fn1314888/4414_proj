@@ -1,0 +1,85 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{5}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Akutsu(2018)]%
+        {Akutsu2018}
+\bibfield{author}{\bibinfo{person}{Tatsuya Akutsu}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Algorithms for Analysis, Inference, and Control of Boolean Networks}}.
+\newblock \bibinfo{publisher}{World Scientific Publishing Co.}
+\newblock
+\showISBNx{978-981-3233-42-3}
+\href{https://doi.org/10.1142/10801}{doi:\nolinkurl{10.1142/10801}}
+
+
+\bibitem[Cheng et~al\mbox{.}(2010)]%
+        {Cheng2010}
+\bibfield{author}{\bibinfo{person}{Daizhan Cheng}, \bibinfo{person}{Hongsheng Qi}, {and} \bibinfo{person}{Zhiqiang Li}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Analysis and Control of Boolean Networks: A Semi-tensor Product Approach}}.
+\newblock \bibinfo{publisher}{Springer London}.
+\newblock
+\href{https://doi.org/10.1007/978-0-85729-097-7}{doi:\nolinkurl{10.1007/978-0-85729-097-7}}
+
+
+\bibitem[Faur{\'e} et~al\mbox{.}(2006)]%
+        {Faure2006}
+\bibfield{author}{\bibinfo{person}{Adrien Faur{\'e}}, \bibinfo{person}{Aur{\'e}lien Naldi}, \bibinfo{person}{Claudine Chaouiya}, {and} \bibinfo{person}{Denis Thieffry}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Dynamical analysis of a generic Boolean model for the control of the mammalian cell cycle}.
+\newblock \bibinfo{journal}{\emph{Bioinformatics}} \bibinfo{volume}{22}, \bibinfo{number}{14} (\bibinfo{year}{2006}), \bibinfo{pages}{e124--e131}.
+\newblock
+\href{https://doi.org/10.1093/bioinformatics/btl210}{doi:\nolinkurl{10.1093/bioinformatics/btl210}}
+
+
+\bibitem[Kauffman(1969)]%
+        {Kauffman1969}
+\bibfield{author}{\bibinfo{person}{Stuart~A. Kauffman}.} \bibinfo{year}{1969}\natexlab{}.
+\newblock \showarticletitle{Metabolic stability and epigenesis in randomly constructed genetic nets}.
+\newblock \bibinfo{journal}{\emph{Journal of Theoretical Biology}} \bibinfo{volume}{22}, \bibinfo{number}{3} (\bibinfo{year}{1969}), \bibinfo{pages}{437--467}.
+\newblock
+\href{https://doi.org/10.1016/0022-5193(69)90015-0}{doi:\nolinkurl{10.1016/0022-5193(69)90015-0}}
+
+
+\bibitem[Shmulevich et~al\mbox{.}(2002)]%
+        {Shmulevich2002}
+\bibfield{author}{\bibinfo{person}{Ilya Shmulevich}, \bibinfo{person}{Edward~R. Dougherty}, \bibinfo{person}{Seungchan Kim}, {and} \bibinfo{person}{Wei Zhang}.} \bibinfo{year}{2002}\natexlab{}.
+\newblock \showarticletitle{Probabilistic {B}oolean networks: a rule-based uncertainty model for gene regulatory networks}.
+\newblock \bibinfo{journal}{\emph{Bioinformatics}} \bibinfo{volume}{18}, \bibinfo{number}{2} (\bibinfo{year}{2002}), \bibinfo{pages}{261--274}.
+\newblock
+\href{https://doi.org/10.1093/bioinformatics/18.2.261}{doi:\nolinkurl{10.1093/bioinformatics/18.2.261}}
+
+
+\end{thebibliography}

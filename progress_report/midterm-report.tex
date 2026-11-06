@@ -1,0 +1,111 @@
+\documentclass[sigconf]{acmart}
+
+\settopmatter{printacmref=false} 
+\setcopyright{none}        
+
+\renewcommand\footnotetextcopyrightpermission[1]{} 
+\pagestyle{plain}                                 
+\acmDOI{}                                         
+\acmISBN{}                                        
+\acmConference[]{}{}{}                           
+
+\begin{document}
+
+\title{Mammalian Cell Cycle Boolean Network Analysis}
+
+\author{Frank Ngo}
+\email{ngofrank@my.yorku.ca}
+
+\maketitle
+
+\subsubsection*{Note:}
+The project has evolved.
+The focus on Boolean networks still remains.
+However, we are dropping the idea of directed flag complexes becuase after preliminary tests, the union of state transition graphs of Boolean networks has plenty of $H_1$ topology, but not as much higher dimensional topology as we thought.
+Instead, we will use more traditional graph-theoretic analysis.
+
+\section{Introduction}
+DNA sequences interact with each other to control the expression of mRNA and proteins, which in turn control cell activity. 
+These interactions can be modelled as Boolean networks \cite{Kauffman1969}.
+In this work, we analyze the mammalian cell cycle Boolean network \cite{Faure2006} under synchronous updates, providing insight into the complex dynamics of the cell cycle.
+Understanding the cell cycle has applications in targeted interventions for situations where the cell cycle behaviour is abnormal, such as cancer.
+We take the union of two Boolean networks, when $\text{CycD}$ is on and when it is off, and show which genes are critical at which areas in the state transition graph.
+
+\section{Problem Definition}
+Here we provide an overview of concepts required to understand this work. 
+First, we define Boolean control networks under synchronous update.
+Then we define state transition graphs, fixed point attractors, limit cycle attractors, basins of attraction, and input induced cycles. \\
+
+A \textbf{synchronous Boolean control network} is a tuple $(V, U, Y, F, H)$, where the components are defined as follows: 
+
+\begin{itemize}
+    \item $V = \{v_1, v_2, \dots, v_n\}$ is a finite ordered set of $n$ state variables, where each variable takes values in $\{0, 1\}$. At time $t \in \mathbb{N}_0$, the state vector is $\mathbf{x}(t) = (x_1(t), x_2(t), \dots, x_n(t)) \in \{0, 1\}^n$.
+    \item $U = \{u_1, u_2, \dots, u_m\}$ is a finite ordered set of $m$ input variables, where each variable takes values in $\{0, 1\}$. At time $t \in \mathbb{N}_0$, the input vector is $\mathbf{u}(t) = (u_1(t), u_2(t), \dots, u_m(t))$.
+    \item $Y = \{y_1, y_2, \dots, y_p\}$ is a finite ordered set of $p$ output variables, where each variable takes values in $\{0, 1\}$. At time $t \in \mathbb{N}_0$, the output vector is $\mathbf{y}(t) = (y_1(t), y_2(t), \dots, y_p(t))$.
+    \item $F: \{0, 1\}^n \times \{0, 1\}^m \rightarrow \{0, 1\}^n$ is the global state transition function, defined by:
+    $$
+    F(\mathbf{x}(t), \mathbf{u}(t)) = (f_1(\mathbf{x}(t), \mathbf{u}(t)), f_2(\mathbf{x}(t), \mathbf{u}(t)), \dots, f_n(\mathbf{x}(t), \mathbf{u}(t)))
+    $$
+    where each local transition function $f_i: \{0, 1\}^n \times \{0, 1\}^m \rightarrow \{0, 1\}^n$ determines the next state value $x_i(t + 1)$ of variable $v_i$.
+    \item $H: \{0, 1\}^n \rightarrow \{0, 1\}^p$ is the global output function, defined by:
+    $$
+    H(\mathbf{x}(t)) = (h_1(\mathbf{x}(t)), h_2(\mathbf{x}(t)), \dots, h_p(\mathbf{x}(t)))
+    $$
+    where each local output function $h_j: \{0, 1\}^n \rightarrow \{0, 1\}$ determines the current value $y_j(t)$ of variable $y_j$.
+\end{itemize}
+
+When the input vector $\mathbf{u}(t)$ is fixed to a constant value $\mathbf{u} \in \{0, 1\}^m$, the synchronous Boolean control network reduces to an autonomous synchronous Boolean network $(V, F^{(\mathbf{u})})$, where the global state transition function is given by $F^{(\mathbf{u})}(\mathbf{x}(t)) = F(\mathbf{x}(t), \mathbf{u})$. Each fixed input induces its own distinct state transition graph and attractor landscape.
+
+The \textbf{state transition graph} of a synchronous Boolean network is a directed graph $G_{ST} = (X, E_{ST})$ that represents the state space dynamics, where the components are defined as follows:
+\begin{itemize}
+    \item $X = \{0, 1\}^n$ is the set of vertices, representing all possible state vectors $\mathbf{x}(t)$ of the network.
+    \item $E_{ST} \subseteq X \times X$ is the set of directed edges, where a directed edge $(\mathbf{x}, \mathbf{y}) \in E_{ST}$ exists if and only if $\mathbf{y} = F(\mathbf{x})$.
+\end{itemize}
+
+An \textbf{attractor} $A \subseteq X$ of a synchronous Boolean network is a non-empty set of state vectors that forms a directed cycle in the state transition graph $G_{ST}$. $A = \{\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_k\}$ is an attractor of period $k \in \mathbb{N}$ if:
+\begin{enumerate}
+    \item $F(\mathbf{x}_i) = \mathbf{x}_{i + 1}$ for all $1 \leq i < k$, and $F(\mathbf{x}_k) = \mathbf{x}_1$.
+    \item For every $\mathbf{x} \in A$, the trajectory initialized at $\mathbf{x}$ satisfies $\Phi(\tau, \mathbf{x}) \in A$ for all $\tau \in \mathbb{N}_0$.
+\end{enumerate}
+
+Depending on the period $k$ of the cycle, attractors are categorized into two types:
+\begin{itemize}
+    \item \textbf{Fixed Point:} The period is $k = 1$, so the attractor $A = \{\mathbf{x}^*\}$ contains a single state such that $F(\mathbf{x}^*) = \mathbf{x}^*$.
+    \item \textbf{Limit Cycle:} The period is $k > 1$, so the attractor has multiple distinct states $A = \{\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_k\}$ that are visited in sequence repeatedly.
+\end{itemize}
+
+The \textbf{basin of attraction} $B(A) \subseteq X$ associated with an attractor $A$ is the set of all initial states whose trajectories eventually enter $A$:
+$$
+B(A) = \{\mathbf{x} \in X \mid \exists \tau \in \mathbb{N}_0, \Phi(\tau, \mathbf{x}) \in A\}
+$$
+The basins of attraction form a partition of the state space $X$.
+
+\section{Related Work}
+Research on Boolean networks tend to come from two areas: algorithmic and control-theoretic analysis and biological systems modeling.
+
+\subsection*{Algorithmic and Control-Theoretic Analysis}
+From an algorithmic and systems control perspective, Boolean networks present significant computational challenges due to state-space explosion. Tatsuya Akutsu has extensively contributed rigorous algorithmic frameworks for analyzing, inferring, and controlling Boolean networks, addressing core problems such as attractor detection and network identification \cite{Akutsu2018}. Complementing graph-theoretic and combinatorial approaches, Daizhan Cheng and collaborators pioneered the semi-tensor product (STP) method, converting logical dynamics into standard bilinear matrix representations \cite{Cheng2010}. This algebraic framework allows tools from traditional nonlinear control theory, such as controllability, observability, and stabilization, to be directly applied to Boolean control networks.
+
+\subsection*{Biological Analysis and Modeling}
+In parallel, the biological application of Boolean networks originated with Stuart Kauffman's seminal modeling of gene regulatory networks and cell differentiation \cite{Kauffman1969}.
+To address biological uncertainty and stochasticity in gene expression, Shmulevich et al. introduced Probabilistic Boolean Networks (PBNs), integrating rule-based modeling with statistical steady-state analysis \cite{Shmulevich2002}. 
+
+\section{Methodology}
+To study how the mammalian cell cycle works and makes decisions, we use network graphs to look at four main areas: step-by-step path lengths, cycle structure, basin sizes, and network centrality.
+First, we track how many steps it takes from a random starting state to reach an end state, which shows how fast a cell decides its fate.
+Then we look at the 7-state limit cycle attractor when $\text{CycD} = 1$ and test single gene changes to see if the cell gets stuck or finds alternative bypass routes.
+Then we count how many total states lead into healthy rest versus uncontrolled growth to measure how stable each cell type is.
+Then we use centrality scores on the combined network to find bottleneck states and bridges where different paths meet, highlighting the key genes acting as master switches and potential driver oncogenes.
+
+\section{Evaluation}
+This part is not yet completed.
+We are still writing the code.
+We lost time because our original idea with directed flag complexes didn't work out.
+
+\section{Conclusion}
+This part will be written once all of the other parts are done.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references} 
+
+\end{document}
